@@ -1,3 +1,8 @@
 # seatech-python-robotique
 
-bonour
+bonjour
+
+## I. Conjonction des opposés
+
+### A. Ordre et Chaos
+
