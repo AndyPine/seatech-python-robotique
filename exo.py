@@ -3,8 +3,7 @@
 from time import sleep
 
 class Robot():
-    __slots__ = ("__name","__state","__tauxcharge","__mvt_state","__vitess")
-
+    
     def __init__(self, name = "Polux"):
 
         self.__name = name
