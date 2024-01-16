@@ -7,6 +7,7 @@ from exo import Robot
 #* Un humain doit pouvoir digérer ce qu'il a mangé *pas très important, faire en dernier si vous avez le temps*
 #* Un Cyborg doit être une combinaison d'un humain et d'un robot
 #* Bonus : ajouter une méthode fun au Cyborg
+
 from time import sleep
 
 class Humain():

@@ -3,12 +3,12 @@
 from time import sleep
 
 class Robot():
-    
+
     def __init__(self, name = "Polux"):
 
         self.__name = name
         self.__state = "On"
-        self.__tauxcharge = 20
+        self.__battery = 20
         self.__mvt_state = False
         self.__vitess = 10
 
@@ -33,7 +33,7 @@ class Robot():
     
     @property
     def tauxcharge(self):
-        return(self.__tauxcharge)
+        return(self.__battery)
     
     @property
     def mvt_state(self):
@@ -41,18 +41,18 @@ class Robot():
     
     def allumer(self):
         self.__state = "On"
-        print("Je me suis allumé")
+        print("I'm ON")
     
     def eteindre(self):
         self.__state = "Off"
-        print("Je m'éteins")
+        print("I'm OFF")
     
     def charge(self):
-        while self.__tauxcharge <  100:
-            self.__tauxcharge = self.__tauxcharge + 10
-            if self.__tauxcharge >  100:
-                self.__tauxcharge = 100
-            print("Le taux de charge est a ",self.__tauxcharge,"%" )
+        while self.__battery <  100:
+            self.__battery = self.__battery + 10
+            if self.__battery >  100:
+                self.__battery = 100
+            print("Battery : ",self.__battery,"%" )
             sleep(1)
     
     def move(self, vitess):
@@ -65,17 +65,17 @@ class Robot():
         if coef > 60 :
             coef = 60
 
-        if self.__tauxcharge - coef >0:
+        if self.__battery - coef >0:
 
             self.__vitess = vitess
             self.__mvt_state = True
-            self.__tauxcharge = self.__tauxcharge - coef
+            self.__battery = self.__battery - coef
 
         else:
 
             self.__vitess = 0
             self.__mvt_state = False
-            print("Pour cause de charge épuisé, je ne peux me déplacer :()")
+            print("Not enough energy. Pls charge more or slow down")
 
     def stopmove(self):
 
@@ -84,24 +84,22 @@ class Robot():
 
     def globalState(self):
 
-        print("Nom :", self.__name)
-        print("Etat :", self.__state)
-        print("Taux de charge :",self.__tauxcharge)
-        print("Vitesse :",self.__vitess)
-        print("En deplacement :",self.__mvt_state)
+        print("Name :", self.__name)
+        print("State :", self.__state)
+        print("Battery :",self.__battery)
+        print("Speed :",self.__vitess)
+        print("Moving ? :",self.__mvt_state)
 
 if __name__ =="__main__":
 
-    a = Robot()
-    a.move(50)
+    walle = Robot()
+    walle.move(50)
 
-    a.charge()
-    a.move(56)
+    walle.charge()
+    walle.move(56)
 
-    val = a.vitess
-    print(val)
-    a.stopmove()
+    walle.stopmove()
 
-    a.eteindre()
-    a.globalState()
+    walle.eteindre()
+    walle.globalState()
 
