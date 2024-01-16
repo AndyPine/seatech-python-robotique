@@ -13,7 +13,7 @@ from time import sleep
 class Humain():
     def __init__(self, sex = "M", name = "Heracles"):
 
-        self.__sex = sex # Man is 0 | Women is 1
+        self.__sex = sex
         self.__name = name
         self.__imc = 20
         self.__need_digestion = False
@@ -89,8 +89,8 @@ if __name__ =="__main__":
     Robocop = Cyborg(nom = "Robocop")
     Robocop.globalState()
 
-    Robocop.eat(["Pomme", "Banane"])
-    Robocop.eat("Banane")
+    Robocop.eat(["Apple", "Banana"])
+    Robocop.eat("Banana")
 
     Robocop.digest()
     Robocop.charge()
