@@ -50,8 +50,14 @@ class Robot():
     
     def move(self, vitess):
 
+        if vitess < 5:
+            vitess = 5
+
         coef =  vitess * 0.5
 
+        if coef > 60 :
+            coef = 60
+            
         if self.__tauxcharge - coef >0:
 
             self.__vitess = vitess
